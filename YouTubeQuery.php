@@ -1,9 +1,4 @@
-<?php
-	/**
-	* @file   YouTubeData.php
-	* @author Luís Barbosa
-	* @date   27/12/2011         
-	*/	
+<?php	
 	class YouTubeVideoQuery extends YouTubeQueryBase
 	{
 		//Webservice uri
@@ -38,44 +33,44 @@
 		
 		public function __construct() {}
 		
-        //Static method to provide method chaining
+        	//Static method to provide method chaining
 		public static function getInstance() {
 			return new YouTubeVideoQuery();
 		}
         
 		public function setSearchTerm($value) {
 			$this->fields['q'] = $value;
-            return $this;
+            		return $this;
 		}
 		
 		public function setMaxResults($value) {
 			$this->fields['max-results'] = $value;
-            return $this;
+            		return $this;
 		}
 		
 		public function setStartIndex($value) {
 			$this->fields['start-index'] = $value;
-            return $this;
+            		return $this;
 		}
 		
 		public function setOrderBy($value) {
 			$this->fields['orderby'] = $value;
-            return $this;
+            		return $this;
 		}
 		
 		public function setAuthor($value) {
 			$this->fields['author'] = $value;
-            return $this;
+            		return $this;
 		}
 		
 		public function setTime($value) {
 			$this->fields['time'] = $value;
-            return $this;
+            		return $this;
 		}
 		
 		public function setFormat($value) {
 			$this->fields['format'] = $value;
-            return $this;
+            		return $this;
 		}
 		
 		protected function httpRequest() {
