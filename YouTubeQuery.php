@@ -21,7 +21,7 @@
 		const FORMAT_HTTP_SWF = 5;
 		const FORMAT_RTSP_MPEG4 = 6;
 		
-		private $fields = array(
+		protected $params = array(
 			'q' => '',
 			'max-results' => '',
 			'start-index' => 1,
@@ -33,56 +33,33 @@
 		
 		public function __construct() {}
 		
-        	//Static method to provide method chaining
-		public static function getInstance() {
+		public static function factory() {
 			return new YouTubeVideoQuery();
 		}
         
-		public function setSearchTerm($value) {
-			$this->fields['q'] = $value;
-            		return $this;
-		}
-		
-		public function setMaxResults($value) {
-			$this->fields['max-results'] = $value;
-            		return $this;
-		}
-		
-		public function setStartIndex($value) {
-			$this->fields['start-index'] = $value;
-            		return $this;
-		}
-		
-		public function setOrderBy($value) {
-			$this->fields['orderby'] = $value;
-            		return $this;
-		}
-		
-		public function setAuthor($value) {
-			$this->fields['author'] = $value;
-            		return $this;
-		}
-		
-		public function setTime($value) {
-			$this->fields['time'] = $value;
-            		return $this;
-		}
-		
-		public function setFormat($value) {
-			$this->fields['format'] = $value;
-            		return $this;
-		}
+		public function __get($name) {
+	        	if (array_key_exists($name, $this->params)) {
+	            		return $this->params[$name];
+	        	}
+	        }
+	
+	        public function __set($name, $value) {
+	        	if (array_key_exists($name, $this->params)) {
+		            	$this->params[$name] = $value;
+		            	return $this;
+	        	}
+	        }
 		
 		protected function httpRequest() {
 			$link = self::HTTP_URI;
 			$auxLink = '';
 			
-			foreach ($this->fields as $fieldKey => $fieldValue) {
-				if (!empty($fieldValue)) {
+			foreach ($this->params as $key => $value) {
+				if (!empty($value)) {
 					if (empty($auxLink)) {
-						$auxLink .= $fieldKey . '=' . $fieldValue;
+						$auxLink .= $key . '=' . $value;
 					} else {
-						$auxLink .= '&' . $fieldKey . '=' . $fieldValue;
+						$auxLink .= '&' . $key . '=' . $value;
 					}
 				}
 			}
