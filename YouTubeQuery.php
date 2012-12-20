@@ -1,4 +1,6 @@
 <?php	
+	require('YouTubeQueryBase.php');
+	
 	class YouTubeVideoQuery extends YouTubeQueryBase
 	{
 		//Webservice uri
