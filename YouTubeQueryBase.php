@@ -1,5 +1,5 @@
 <?php	
-	abstract class YouTubeSearchBase
+	abstract class YouTubeSearch
 	{
 		protected abstract function httpRequest();
 	}
