@@ -1,7 +1,7 @@
 <?php	
-	require('YouTubeSearchBase.php');
+	require('YouTubeSearch.php');
 	
-	class YouTubeVideoSearch extends YouTubeSearchBase
+	class YouTubeVideoSearch extends YouTubeSearch
 	{
 		//Webservice uri
 		const HTTP_URI = 'http://gdata.youtube.com/feeds/api/videos';
