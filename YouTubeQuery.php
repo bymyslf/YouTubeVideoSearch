@@ -36,7 +36,7 @@
 		public function __construct() {}
 		
 		public static function factory() {
-			return new YouTubeVideoQuery();
+			return new YouTubeVideoSearch();
 		}
         
 		public function __get($name) {
